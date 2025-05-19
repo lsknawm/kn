@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify
+from functools import wraps
+from flask import Flask, request, jsonify, make_response
 from flask_mysqldb import MySQL
 import bcrypt
 
@@ -12,7 +13,31 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql = MySQL(app)
 
 
-# 注册接口
+# 认证装饰器：检查请求头中的用户名是否有效
+def auth_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        # 从请求头获取用户名（示例：Authorization: Username <username>）
+        if 'Authorization' not in request.headers:
+            return jsonify({"error": "Authorization header is missing"}), 401
+        username = request.headers['Authorization'].split(' ')[1]
+        if not username:
+            return jsonify({"error": "Username token is missing"}), 401
+
+        # 验证用户名是否存在于数据库
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT id FROM users WHERE username = %s", (username,))
+        user = cur.fetchone()
+        cur.close()
+
+        if not user:
+            return jsonify({"error": "Invalid username token"}), 401
+        return f(username, *args, **kwargs)
+
+    return decorated
+
+
+# 注册接口（保持不变）
 @app.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
@@ -24,44 +49,33 @@ def register():
     if not username or not password:
         return jsonify({"error": "Username and password are required"}), 400
 
-    # 检查用户名是否已存在
     cur = mysql.connection.cursor()
     cur.execute("SELECT id FROM users WHERE username = %s", (username,))
-    user = cur.fetchone()
-
-    if user:
+    if cur.fetchone():
         return jsonify({"error": "Username already exists"}), 400
 
-    # 哈希密码
     hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-
     try:
-        # 开始事务
         mysql.connection.begin()
-
-        # 插入用户信息
         cur.execute("INSERT INTO users (username, password) VALUES (%s, %s)",
                     (username, hashed.decode('utf-8')))
         user_id = cur.lastrowid
-
-        # 插入用户详细信息
         cur.execute("INSERT INTO user_info (user_id, name, phone) VALUES (%s, %s, %s)",
                     (user_id, name, phone))
-
-        # 提交事务
         mysql.connection.commit()
-
-        return jsonify({"message": "User registered successfully", "user_id": user_id}), 201
-
+        return jsonify({
+            "message": "User registered successfully",
+            "user_id": user_id,
+            "token": username  # 返回用户名作为令牌
+        }), 201
     except Exception as e:
-        # 回滚事务
         mysql.connection.rollback()
         return jsonify({"error": str(e)}), 500
     finally:
         cur.close()
 
 
-# 登录接口
+# 登录接口（返回用户名作为令牌）
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -73,7 +87,7 @@ def login():
 
     cur = mysql.connection.cursor()
     cur.execute("""
-        SELECT u.id, u.username, u.password, ui.name, ui.phone 
+        SELECT u.id, u.password, ui.name, ui.phone 
         FROM users u
         LEFT JOIN user_info ui ON u.id = ui.user_id
         WHERE u.username = %s
@@ -84,13 +98,56 @@ def login():
     if not user:
         return jsonify({"error": "User not found"}), 404
 
-    # 验证密码
     if bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
-        # 密码正确，返回用户信息（实际应用中可能返回token）
-        user.pop('password')  # 不要返回密码
-        return jsonify({"message": "Login successful", "user": user}), 200
+        # 直接返回用户名作为令牌（明文，仅适用于简单场景）
+        return jsonify({
+            "message": "Login successful",
+            "token": username,  # 令牌为用户名
+            "user": {
+                "id": user['id'],
+                "username": username,
+                "name": user['name'],
+                "phone": user['phone']
+            }
+        }), 200
     else:
         return jsonify({"error": "Invalid password"}), 401
+
+
+# 查询当前用户信息（通过用户名令牌认证）
+@app.route('/user', methods=['GET'])
+@auth_required
+def get_current_user(username):
+    cur = mysql.connection.cursor()
+    cur.execute("""
+        SELECT u.id, u.username, ui.name, ui.phone 
+        FROM users u
+        LEFT JOIN user_info ui ON u.id = ui.user_id
+        WHERE u.username = %s
+    """, (username,))
+    user = cur.fetchone()
+    cur.close()
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    return jsonify({"user": user}), 200
+
+
+# 根据用户 ID 查询（需携带用户名令牌）
+@app.route('/user/<int:user_id>', methods=['GET'])
+@auth_required
+def get_user_by_id(username, user_id):
+    cur = mysql.connection.cursor()
+    cur.execute("""
+        SELECT u.id, u.username, ui.name, ui.phone 
+        FROM users u
+        LEFT JOIN user_info ui ON u.id = ui.user_id
+        WHERE u.id = %s
+    """, (user_id,))
+    user = cur.fetchone()
+    cur.close()
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    return jsonify({"user": user}), 200
 
 
 if __name__ == '__main__':
