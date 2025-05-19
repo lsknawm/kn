@@ -12,22 +12,50 @@
         .user-card {
             background-color: #fff;
             width: 320px;
-            height: 500px;
-            border-radius: 5px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 30px;
+            margin: 50px auto;
+            transition: transform 0.3s ease;
+        }
+
+        .user-card:hover {
+            transform: scale(1.05);
         }
 
         .user-card h2 {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #485F9F;
         }
 
         .user-card p {
-            margin: 5px 0;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .user-card button {
+            width: 100%;
+            margin-top: 20px;
+            background-color: #485F9F;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .user-card button:hover {
+            background-color: #6883D0;
         }
     </style>
 </head>
@@ -48,21 +76,11 @@
         </div>
         <nav>
             <ul>
-                <a href="index.html">
-                    <li>首页</li>
-                </a>
-                <a href="list2.html">
-                    <li>角色介绍</li>
-                </a>
-                <a href="list3.html">
-                    <li>经典案件</li>
-                </a>
-                <a href="list4.html">
-                    <li>柯南道具</li>
-                </a>
-                <a href="list5.html">
-                    <li>电影系列</li>
-                </a>
+                <li onclick="window.location.href='/index'">首页</li>
+                <li onclick="window.location.href='/list2'">角色介绍</li>
+                <li onclick="window.location.href='/list3'">经典案件</li>
+                <li onclick="window.location.href='/list4'">柯南道具</li>
+                <li onclick="window.location.href='/list5'">电影系列</li>
                 <!-- 移除粉丝登录链接 -->
             </ul>
         </nav>
@@ -112,6 +130,20 @@
             phoneP.textContent = `电话: ${userInfo.phone}`;
             userCard.appendChild(phoneP);
 
+            const emailP = document.createElement('p');
+            emailP.textContent = `邮箱: ${userInfo.email}`;
+            userCard.appendChild(emailP);
+
+            // 添加退出登录按钮
+            const logoutButton = document.createElement('button');
+            logoutButton.textContent = '退出登录';
+            logoutButton.addEventListener('click', () => {
+                localStorage.removeItem('token');
+                localStorage.removeItem('user_info');
+                window.location.reload();
+            });
+            userCard.appendChild(logoutButton);
+
             container.innerHTML = '';
             container.appendChild(userCard);
         } else {
@@ -128,6 +160,8 @@
                 <input type="email" placeholder="邮箱（请输入有效邮箱）" required>
                 <input type="password" placeholder="密码（至少 6 个字符）" pattern=".{6,}" required>
                 <input type="password" placeholder="确认密码" pattern=".{6,}" required>
+                <input type="text" placeholder="姓名" required>
+                <input type="text" placeholder="手机号" required>
                 <button>注册</button>
             `;
             formBox.appendChild(registerBox);
@@ -139,7 +173,7 @@
                 <h1>login</h1>
                 <input type="text" placeholder="用户名">
                 <input type="password" placeholder="密码">
-                <button onclick="window.location.href='index.html'">登录</button>
+                <button>登录</button>
             `;
             formBox.appendChild(loginBox);
 
@@ -148,7 +182,7 @@
             conBoxLeft.innerHTML = `
                 <h2>欢迎来到<span>柯南</span>的世界</h2>
                 <p>快来探索<span>推理</span>的魅力吧</p>
-                <img src="imagesogo.png" alt="">
+                <img src="./images/logo.png" alt="">
                 <p>已有账号</p>
                 <button id="login">去登录</button>
             `;
@@ -188,6 +222,81 @@
                 register_box.classList.add('hidden');
                 login_box.classList.remove('hidden');
             })
+
+            // 注册按钮点击事件
+            const registerButton = registerBox.querySelector('button');
+            registerButton.addEventListener('click', async () => {
+                const username = registerBox.querySelector('input:nth-of-type(1)').value;
+                const email = registerBox.querySelector('input:nth-of-type(2)').value;
+                const password = registerBox.querySelector('input:nth-of-type(3)').value;
+                const confirmPassword = registerBox.querySelector('input:nth-of-type(4)').value;
+                const name = registerBox.querySelector('input:nth-of-type(5)').value;
+                const phone = registerBox.querySelector('input:nth-of-type(6)').value;
+
+                if (password !== confirmPassword) {
+                    alert('两次输入的密码不一致');
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            username: username,
+                            password: password,
+                            name: name,
+                            phone: phone,
+                            email: email
+                        })
+                    });
+
+                    const data = await response.json();
+                    if (response.ok) {
+                        alert('注册成功');
+                        form_box.style.transform = 'translateX(0%)';
+                        register_box.classList.add('hidden');
+                        login_box.classList.remove('hidden');
+                    } else {
+                        alert(data.error);
+                    }
+                } catch (error) {
+                    alert('注册失败，请稍后再试');
+                }
+            });
+
+            // 登录按钮点击事件
+            const loginButton = loginBox.querySelector('button');
+            loginButton.addEventListener('click', async () => {
+                const username = loginBox.querySelector('input:nth-of-type(1)').value;
+                const password = loginBox.querySelector('input:nth-of-type(2)').value;
+
+                try {
+                    const response = await fetch('/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            username: username,
+                            password: password
+                        })
+                    });
+
+                    const data = await response.json();
+                    if (response.ok) {
+                        localStorage.setItem('token', data.token);
+                        localStorage.setItem('user_info', JSON.stringify(data.user));
+                        window.location.href = '/login'; // 登录成功后跳转到 /login 路由
+                    } else {
+                        alert(data.error);
+                    }
+                } catch (error) {
+                    alert('登录失败，请稍后再试');
+                }
+            });
         }
     </script>
 </body>

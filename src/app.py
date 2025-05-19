@@ -1,9 +1,16 @@
 from functools import wraps
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify, make_response, render_template
 from flask_mysqldb import MySQL
 import bcrypt
-#
+from flask import Flask, send_from_directory
+from flask_cors import CORS  # 导入 CORS
+
+
 app = Flask(__name__)
+
+CORS(app)  # 启用 CORS
+
+
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'root'
@@ -149,6 +156,44 @@ def get_user_by_id(username, user_id):
         return jsonify({"error": "User not found"}), 404
     return jsonify({"user": user}), 200
 
+
+# 静态文件路由 - CSS 和图片
+@app.route('/css/<path:path>')
+def send_css(path):
+    return send_from_directory('templates/css', path)
+
+@app.route('/images/<path:path>')
+def send_images(path):
+    return send_from_directory('templates/images', path)
+
+# 页面路由
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/index')
+def index_shortcut():
+    return render_template('index.html')
+
+@app.route('/login')
+def login_page():
+    return render_template('login.html')
+
+@app.route('/list2')
+def list2():
+    return render_template('list2.html')
+
+@app.route('/list3')
+def list3():
+    return render_template('list3.html')
+
+@app.route('/list4')
+def list4():
+    return render_template('list4.html')
+
+@app.route('/list5')
+def list5():
+    return render_template('list5.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

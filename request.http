@@ -3,8 +3,8 @@ POST http://localhost:5000/register HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "testuser",
-  "password": "TestPass123",
+  "username": "test",
+  "password": "test",
   "name": "Test User",
   "phone": "1234567890"
 }
@@ -23,8 +23,8 @@ POST http://localhost:5000/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "testuser",
-  "password": "TestPass123"
+  "username": "test",
+  "password": "test"
 }
 
 ### 4. 使用错误密码登录（应返回错误）
@@ -37,7 +37,7 @@ Content-Type: application/json
 }
 
 ### 5. 查询当前用户信息（使用上面登录返回的令牌）
-@token = testuser  // 替换为实际登录返回的令牌
+@token = test  // 替换为实际登录返回的令牌
 
 GET http://localhost:5000/user HTTP/1.1
 Authorization: Username {{token}}
