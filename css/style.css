@@ -1,0 +1,677 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+header{
+	width: 100%;
+	height: auto;
+	background: rgba(245, 245, 245, 1);
+}
+.header{
+	width: 1200px;
+	height: auto;
+	margin: auto;
+}
+.logo{
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+.logo img{
+	width: 100%;
+	height: auto;
+}
+.search{
+	width: 500px;
+	height: 50px;
+	float: right;
+	margin: 25px 0px;
+}
+.search-1{
+	width: 400px;
+	height: 50px;
+	float: left;
+	border: none;
+	border: 1.35px solid rgba(72, 95, 159, 1.0);
+	border-radius: 6px 0px 0px 6px;
+	background: rgba(0, 0, 0, 0);
+	color: rgba(0, 0, 0, 0.3);
+	margin-left: 50px;
+}
+.search-2{
+	width: 50px;
+	height: 50px;
+	float: left;
+	border: none;
+/*	border: 1px solid rgba(20, 50, 90, 1.0);*/
+	background: rgba(72, 95, 159, 1.0);
+	border-radius: 0px 6px 6px 0px;
+	color: rgba(255, 255, 255, 1.0);
+	font-size: 22px;
+}
+.banner{
+	width: 100%;
+	height: auto;
+}
+.banner img{
+	width: 100%;
+	height: auto;
+}
+nav{
+	width: 1300px;
+	height: 50px;
+	margin: auto;
+}
+ul{
+	width: 1300px;
+	height: 50px;
+	margin: auto;
+}
+ul li{
+	width: 216px;
+	height: 50px;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+	color: rgba(0, 0, 0, 1.0);
+}
+ul li:hover{
+	color: rgba(72, 95, 159, 1.0);
+	background: rgba(255, 255, 255, 1.0);
+}
+.main{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+}
+.main-left{
+	width: 800px;
+	height: auto;
+	float: left;
+	padding: 20px;
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.8);
+	text-indent: 2em;
+	line-height: 36px;
+}
+.main-right{
+	width: 450px;
+	height: auto;
+	float: left;
+	margin-left: 50px;
+}
+.main-right img{
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.main-center{
+	width: 100%;
+	height: auto;
+	margin: 30px 0px;
+}
+.main-center img{
+	width: 100%;
+	height: auto;
+}
+.main-2{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+}
+.main-2-left{
+	width: 500px;
+	height: auto;
+	float: left;
+}
+.main-2-left img{
+	width: 100%;
+	height: auto;
+}
+.main-2-right{
+	width: 750px;
+	height: auto;
+	float: left;
+	margin-left: 50px;
+	padding: 30px;
+	text-indent: 2em;
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 20px;
+	line-height: 38px;
+}
+.main-3{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+}
+.main-3-left{
+	width: 800px;
+	height: auto;
+	float: left;
+	padding: 30px;
+	text-indent: 2em;
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.8);
+	line-height: 38px;
+}
+.main-3-right{
+	width: 450px;
+	height: auto;
+	float: left;
+	margin-left: 50px;
+
+}
+.main-3-right img{
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+footer{
+	width: 100%;
+	height: auto;
+	background: rgba(72, 95, 159, 1.0);
+}
+.footer{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+	text-align: center;
+	color: rgba(255, 255, 255, 1.0);
+	line-height: 50px;
+}
+/*第二页 分类*/
+.main-fenlei{
+	width: 1300px;
+	height: auto;
+	margin: 50px auto;
+}
+.main-fenlei-left{
+	width: 800px;
+	height: auto;
+	float: left;
+}
+.main-fenlei-left-title{
+	width: 800px;
+	height: auto;
+	text-align: left;
+	margin: 20px 0px;
+	color: rgba(72, 95, 159, 1.0);
+	font-size: 24px;
+	text-indent: 1em;
+	line-height: 50px;
+	border-left: 10px solid rgba(72, 95, 159, 1.0);
+}
+.main-fenlei-left-text{
+	width: 800px;
+	height: auto;
+	text-indent: 2em;
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.8);
+	line-height: 60px;
+}
+.main-fenlei-right{
+	width: 450px;
+	height: auto;
+	float: left;
+	margin-left: 50px;
+}
+.main-fenlei-right img{
+	width: 100%;
+	height: auto;
+}
+/*第三页 历史演变*/
+
+.main-yanbian{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+}
+.main-yanbian-1{
+	width: 1300px;
+	height: auto;
+
+}
+.main-yanbian-1-pic{
+	width: 300px;
+	height: 300px;
+	float: left;
+	margin: 12.5px;
+	position: relative;
+}
+.main-yanbian-1-pic:hover{
+	box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.main-yanbian-1-pic:hover::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	border: 20px solid rgba(116, 140, 105, 1);
+}
+.main-yanbian-1 img{
+	width: 100%;
+	height: auto;
+}
+.main-yanbian-1-text{
+	width: 1300px;
+	height: auto;
+	text-align: left;
+	margin: 20px 0px;
+	color: rgba(72, 95, 159, 1.0);
+	font-size: 24px;
+	text-indent: 1em;
+	line-height: 50px;
+	border-left: 10px solid rgba(72, 95, 159, 1.0);
+}
+.main-yanbian-1-text-2{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+	text-indent: 2em;
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.8);
+	line-height: 40px;
+	padding: 30px;
+}
+/*第四页 题材内容*/
+.main-ticaineirong-title{
+	width: 1300px;
+	height: auto;
+	text-align: left;
+	margin: 20px auto;
+	color: rgba(72, 95, 159, 1.0);
+	font-size: 24px;
+	text-indent: 1em;
+	line-height: 50px;
+	border-left: 10px solid rgba(72, 95, 159, 1.0);
+}
+.main-ticaineirong{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+	padding: 30px;
+	text-indent: 2em;
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 18px;
+	line-height: 36px;
+}
+.main-ticaineirong-center{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+}
+.main-ticaineirong-center-1{
+	width: 250px;
+	height: auto;
+	float: left;
+	margin: 35px;
+	text-align: center;
+}
+.main-ticaineirong-center-1 img{
+	width: 100%;
+	height: auto;
+}
+.main-ticaineirong-center-1 p{
+	color: rgba(72, 95, 159, 1.0);
+	font-size: 26px;
+	line-height: 60px;
+}
+.main-ticaineirong-center-1:hover{
+	background: rgba(72, 95, 159, 1.0);
+	box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.main-ticaineirong-center-1:hover p{
+	color: rgba(255, 255, 255, 1.0);
+}
+.main-ticaineirong-footer{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+	padding: 30px;
+	text-indent: 2em;
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.8);
+	line-height: 38px;
+}
+/*第五页 各地分布*/
+.main-gedi{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+	border: 1px dotted rgba(72, 95, 159, 1.0);
+}
+.main-gedi-left{
+	width: 896px;
+	height: auto;
+	float: left;
+	padding: 30px;
+	color: rgba(0, 0, 0, 0.8);
+	text-indent: 2em;
+	font-size: 17px;
+	line-height: 50px;
+}
+.main-gedi-right{
+	width: 300px;
+	height: auto;
+	float: right;
+	margin-left: 50px;
+}
+.main-gedi-right img{
+	width: 100%;
+	height: auto;
+}
+.main-gedi-2{
+	width: 1300px;
+	height: auto;
+	margin: 30px auto;
+	border: 1px dotted rgba(72, 95, 159, 1.0);
+}
+.main-gedi-2-left{
+	width: 300px;
+	height: auto;
+	float: left;
+
+}
+.main-gedi-2-left img{
+	width: 100%;
+	height: auto;
+}
+.main-gedi-2-right{
+	width: 896px;
+	height: auto;
+	float: left;
+	padding: 30px;
+	color: rgba(0, 0, 0, 0.8);
+	text-indent: 2em;
+	font-size: 17px;
+	margin-left: 50px;
+	line-height: 50px;
+}
+
+/*第六页 会员登录*/
+.main-regedit{
+	width: 1300px;
+	height: auto;
+	margin: auto;
+	padding: 100px;
+	background: url(/images/1.jpg)no-repeat;
+	background-size: 100% 100%;
+
+}
+.main-regedit-1{
+	width: 500px;
+	height: auto;
+	padding: 50px;
+	float: right;
+	border-radius: 10px;
+	border: none;
+	background: rgba(255, 255, 255, 1.0);
+
+}
+.main-regedit-2{
+	width: 400px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	margin-bottom: 20px;
+	font-size: 22px;
+	color: rgba(72, 95, 159, 1.0);
+}
+.main-regedit-3{
+	width: 400px;
+	height: 50px;
+	color: rgba(0, 0, 0, 0.3);
+	border-radius: 6px;
+	margin-bottom: 20px;
+	background: rgba(0, 0, 0, 0);
+	border: 1px solid rgba(72, 95, 159, 1.0);
+}
+.main-regedit-4{
+	width: 400px;
+	height: 50px;
+	color: rgba(0, 0, 0, 0.3);
+	border-radius: 6px;
+	margin-bottom: 20px;
+	background: rgba(0, 0, 0, 0);
+	border: 1px solid rgba(72, 95, 159, 1.0);
+}
+.main-regedit-5{
+	width: 400px;
+	height: 50px;
+	color: rgba(0, 0, 0, 0.3);
+	border-radius: 6px;
+	margin-bottom: 20px;
+	background: rgba(0, 0, 0, 0);
+	border: 1px solid rgba(72, 95, 159, 1.0);
+}
+.main-regedit-6{
+	width: 400px;
+	height: 50px;
+	margin-bottom: 20px;
+	font-size: 26px;
+	color: rgba(255, 255, 255, 1.0);
+	border-radius: 6px;
+	border: none;
+	background: rgba(72, 95, 159, 1.0);
+
+}
+.main-regedit-7{
+	width: 400px;
+	height: 50px;
+	margin-bottom: 20px;
+	color: rgba(0, 0, 0, 0.3);
+	text-align: center;
+
+}
+
+/* table */
+.wu {
+	width: 1300px;
+	margin: 30px auto;
+	background-color: white;
+}
+.rating-table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: white;
+}
+
+.rating-table th,
+.rating-table td {
+	border: 1px solid #ddd;
+	padding: 12px;
+	text-align: center;
+}
+
+.rating-table th {
+	background-color: #6e84bf;
+	color: white;
+}
+
+.rating-table tr:nth-child(even) {
+	background-color: #b5c2e4;
+}
+
+.rating-table tr:hover {
+	background-color: #879fdc;
+}
+
+/* 登录页面特定样式 */
+.bg-container {
+	/* background: url(../images/dhzhao.png); */
+	background-color: rgba(0, 0, 0, 0);
+	/* height: 800px; */
+	/* margin-top: 600px; */
+
+}
+
+
+.login-page .container {
+    background-color: #fff;
+    width: 650px;
+    height: 415px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 150px auto;
+}
+
+.login-page .form-box {
+    position: absolute;
+    top: -10%;
+    left: 5%;
+    background-color: #b5c2e4;
+    width: 320px;
+    height: 500px;
+    border-radius: 5px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: 0.5s ease-in-out;
+}
+
+.login-page .register-box,
+.login-page .login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.login-page .hidden {
+    display: none;
+    transition: 0.5s;
+}
+
+.login-page h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 5px;
+}
+
+.login-page .container input {
+    background-color: transparent;
+    width: 70%;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 10px 0;
+    text-indent: 10px;
+    margin: 8px 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.login-page .container input::placeholder {
+    color: #fff;
+}
+
+.login-page .container input:focus {
+    /* color: #485F9F; */
+    outline: none;
+    border-bottom: 1px solid /*#485F9F*/;
+    transition: 0.5s;
+}
+
+.login-page .container input:focus::placeholder {
+    opacity: 0;
+}
+
+.login-page .form-box button {
+    width: 70%;
+    margin-top: 35px;
+    background-color: #f6f6f6;
+    outline: none;
+    border-radius: 8px;
+    padding: 13px;
+    color: #485F9F;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.login-page .form-box button:hover {
+    background-color: #6883d0;
+    color: #f6f6f6;
+    transition: background-color 0.5s ease;
+}
+
+.login-page .con-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login-page .con-box.left {
+    left: -2%;
+}
+
+.login-page .con-box.right {
+    right: -2%;
+}
+
+.login-page .con-box h2 {
+    color: #8e9aaf;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.login-page .con-box p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #8e9aaf;
+    text-align: center;
+}
+
+.login-page .con-box span {
+    color: #485F9F;
+}
+
+.login-page .con-box img {
+    width: 150px;
+    height: 150px;
+    opacity: 0.9;
+    margin: 40px 0;
+}
+
+.login-page .con-box button {
+    margin-top: 3%;
+    background-color: #fff;
+    color: #485F9F;
+    border: 1px solid #485F9F;
+    padding: 6px 10px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    outline: none;
+    cursor: pointer;
+}
+
+.login-page .con-box button:hover {
+    background-color: #6883D0;
+    color: #fff;
+}
