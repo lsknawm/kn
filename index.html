@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>名侦探柯南</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        /* 添加样式让按钮靠右 */
+        .login-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(72, 95, 159, 1.0);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,11 +53,11 @@
                 <a href="list5.html">
                     <li>电影系列</li>
                 </a>
-                <a href="login.html">
-                    <li>粉丝登录</li>
-                </a>
+                <!-- 移除粉丝登录链接 -->
             </ul>
         </nav>
+        <!-- 添加login按钮 -->
+        <button class="login-button" onclick="window.location.href='login.html'">粉丝登录</button>
     </header>
     <div class="main">
         <div class="main-left">

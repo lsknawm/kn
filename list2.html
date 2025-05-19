@@ -2,154 +2,168 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>名侦探柯南</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="css/card.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>名侦探柯南</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/card.css">
+    <style>
+        /* 添加样式让按钮靠右 */
+        .login-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(72, 95, 159, 1.0);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-	<header>
-		<div class="header">
-			<div class="logo">
-				<img src="images/logo.png">
-			</div>
-			<div class="search">
-				<input type="text" class="search-1" name="" value="&nbsp &nbsp名侦探柯南">
-				<input type="submit" class="search-2" name="" value="搜索">
-			</div>
-		</div>
-		<div class="banner">
-			<img src="images/banner.png">
-		</div>
-		<nav>
-			<ul>
-				<a href="index.html">
-					<li>首页</li>
-				</a>
-				<a href="list2.html">
-					<li>角色介绍</li>
-				</a>
-				<a href="list3.html">
-					<li>经典案件</li>
-				</a>
-				<a href="list4.html">
-					<li>柯南道具</li>
-				</a>
-				<a href="list5.html">
-					<li>电影系列</li>
-				</a>
-				<a href="login.html">
-					<li>粉丝登录</li>
-				</a>
-			</ul>
-		</nav>
-	</header>
-	<!-- <div class="main-ticaineirong-title">
-		<h3>
-			角色介绍
-		</h3>
-	</div> -->
-	<div class="main-fenlei">
-		<div class="main-fenlei-left">
-			<div class="main-fenlei-left-title">
-				<h3>
-					角色介绍
-				</h3>
-			</div>
-		</div>
-	</div>
-	<div class="card-container">
-		<div class="card">
-			<div class="photo"><img src="images/a1.jpg" alt=""></div>
-			<h1>江户川柯南</h1>
-			<h2>（工藤新一）</h2>
-			<p>原本是高中生侦探工藤新一，被神秘组织灌下毒药后身体缩小成小孩，化名为江户川柯南。</p>
-			<a href="#">了解更多</a>
-		</div>
-		<div class="card">
-			<div class="photo"><img src="images/a2.jpg" alt=""></div>
-			<h1>毛利兰</h1>
-			<h2>关东空手道大赛的冠军</h2>
-			<p>性格开朗、热情、善良，同时也非常坚强和勇敢。新一的青梅竹马，空手道高手，新一的恋人。</p>
-			<a href="#">了解更多</a>
-		</div>
-		<div class="card">
-			<div class="photo"><img src="images/a3.jpg" alt=""></div>
-			<h1>毛利小五郎</h1>
-			<h2>沉睡的小五郎</h2>
-			<p>小兰的父亲，是一名私家侦探，经常在柯南的帮助下解决案件。</p>
-			<a href="#">了解更多</a>
-		</div>
-		<div class="card">
-			<div class="photo"><img src="images/a4.jpg" alt=""></div>
-			<h1>灰原哀</h1>
-			<h2>（宫野志保）</h2>
-			<p>原为神秘组织成员，原名宫野志保，后来逃离组织，也服用了同样的药物身体缩小，化名为灰原哀。</p>
-			<a href="#">了解更多</a>
-		</div>
-		<div class="card">
-			<div class="photo"><img src="images/a5.jpg" alt=""></div>
-			<h1>怪盗基德</h1>
-			<h2>（黑羽快斗）</h2>
-			<p>精通易容、变声、逃脱术等技能。和工藤新一非常相似，两人几乎是一模一样。</p>
-			<a href="#">了解更多</a>
-		</div>
-		<div class="card">
-			<div class="photo"><img src="images/a6.jpg" alt=""></div>
-			<h1>铃木园子</h1>
-			<h2>“推理女王”</h2>
-			<p>小兰的好友，铃木财团的大小姐，但性格开朗、不拘小节，虽然有些花痴。</p>
-			<a href="#">了解更多</a>
-		</div>
-		<div class="card">
-			<div class="photo"><img src="images/a7.jpg" alt=""></div>
-			<h1>阿笠博士</h1>
-			<h2>发明家</h2>
-			<p>柯南的邻居，知道柯南的身份，帮助柯南制作了许多侦探工具。</p>
-			<a href="#">了解更多</a>
-		</div>
-		<div class="card">
-			<div class="photo"><img src="images/a8.jpg" alt=""></div>
-			<h1>服部平次</h1>
-			<h2>关东的工藤，关西的服部</h2>
-			<p>平次性格开朗、活泼、阳光和热血，擅长推理，有很强的阳光气场，富有男子气概和魅力。</p>
-			<a href="#">了解更多</a>
-		</div>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="images/logo.png">
+            </div>
+            <div class="search">
+                <input type="text" class="search-1" name="" value="&nbsp &nbsp名侦探柯南">
+                <input type="submit" class="search-2" name="" value="搜索">
+            </div>
+        </div>
+        <div class="banner">
+            <img src="images/banner.png">
+        </div>
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li>首页</li>
+                </a>
+                <a href="list2.html">
+                    <li>角色介绍</li>
+                </a>
+                <a href="list3.html">
+                    <li>经典案件</li>
+                </a>
+                <a href="list4.html">
+                    <li>柯南道具</li>
+                </a>
+                <a href="list5.html">
+                    <li>电影系列</li>
+                </a>
+                <!-- 移除粉丝登录链接 -->
+            </ul>
+        </nav>
+        <!-- 添加login按钮 -->
+        <button class="login-button" onclick="window.location.href='login.html'">粉丝登录</button>
+    </header>
+    <!-- <div class="main-ticaineirong-title">
+        <h3>
+            角色介绍
+        </h3>
+    </div> -->
+    <div class="main-fenlei">
+        <div class="main-fenlei-left">
+            <div class="main-fenlei-left-title">
+                <h3>
+                    角色介绍
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card">
+            <div class="photo"><img src="images/a1.jpg" alt=""></div>
+            <h1>江户川柯南</h1>
+            <h2>（工藤新一）</h2>
+            <p>原本是高中生侦探工藤新一，被神秘组织灌下毒药后身体缩小成小孩，化名为江户川柯南。</p>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="card">
+            <div class="photo"><img src="images/a2.jpg" alt=""></div>
+            <h1>毛利兰</h1>
+            <h2>关东空手道大赛的冠军</h2>
+            <p>性格开朗、热情、善良，同时也非常坚强和勇敢。新一的青梅竹马，空手道高手，新一的恋人。</p>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="card">
+            <div class="photo"><img src="images/a3.jpg" alt=""></div>
+            <h1>毛利小五郎</h1>
+            <h2>沉睡的小五郎</h2>
+            <p>小兰的父亲，是一名私家侦探，经常在柯南的帮助下解决案件。</p>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="card">
+            <div class="photo"><img src="images/a4.jpg" alt=""></div>
+            <h1>灰原哀</h1>
+            <h2>（宫野志保）</h2>
+            <p>原为神秘组织成员，原名宫野志保，后来逃离组织，也服用了同样的药物身体缩小，化名为灰原哀。</p>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="card">
+            <div class="photo"><img src="images/a5.jpg" alt=""></div>
+            <h1>怪盗基德</h1>
+            <h2>（黑羽快斗）</h2>
+            <p>精通易容、变声、逃脱术等技能。和工藤新一非常相似，两人几乎是一模一样。</p>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="card">
+            <div class="photo"><img src="images/a6.jpg" alt=""></div>
+            <h1>铃木园子</h1>
+            <h2>“推理女王”</h2>
+            <p>小兰的好友，铃木财团的大小姐，但性格开朗、不拘小节，虽然有些花痴。</p>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="card">
+            <div class="photo"><img src="images/a7.jpg" alt=""></div>
+            <h1>阿笠博士</h1>
+            <h2>发明家</h2>
+            <p>柯南的邻居，知道柯南的身份，帮助柯南制作了许多侦探工具。</p>
+            <a href="#">了解更多</a>
+        </div>
+        <div class="card">
+            <div class="photo"><img src="images/a8.jpg" alt=""></div>
+            <h1>服部平次</h1>
+            <h2>关东的工藤，关西的服部</h2>
+            <p>平次性格开朗、活泼、阳光和热血，擅长推理，有很强的阳光气场，富有男子气概和魅力。</p>
+            <a href="#">了解更多</a>
+        </div>
 
-	</div>
+    </div>
 
-	<div class="main-yanbian">
-		<div style="clear: both;"></div>
-		<div class="main-yanbian-1-text">
-			<h3>
-				柯南系列发展历程
-			</h3>
-		</div>
-		<div class="main-yanbian-1-text-2">
-			<p>
-				《名侦探柯南》始于1994年，由青山刚昌创作的推理漫画。最初连载于《周刊少年Sunday》，随后迅速获得了广泛的人气。
-			</p>
-			<p>
-				1996年，《名侦探柯南》被改编成动画系列，进一步扩大了其影响力。动画的成功使得柯南成为了日本动漫界的标志性人物之一，吸引了全球范围内的粉丝。
-			</p>
-			<p>
-				随着系列的发展，《名侦探柯南》不断推出剧场版电影。从1997年的第一部《引爆摩天楼》开始，每年都会有新的剧场版上映，成为了粉丝们期待的年度盛事。
-			</p>
-			<p>
-				除了漫画、动画和电影，《名侦探柯南》还衍生出了众多游戏、小说和周边商品。其独特的推理情节、丰富的人物设定和引人入胜的故事情节，使得这个系列在二十多年的时间里保持了持续的人气，成为了推理动漫的经典之作。
-			</p>
-		</div>
-	</div>
-	<div style="clear: both;"></div>
-	<footer>
-		<div class="footer">
-			<p>
-				Detective Conan © 2025 yjs2302.com 版权所有
-			</p>
-		</div>
-	</footer>
+    <div class="main-yanbian">
+        <div style="clear: both;"></div>
+        <div class="main-yanbian-1-text">
+            <h3>
+                柯南系列发展历程
+            </h3>
+        </div>
+        <div class="main-yanbian-1-text-2">
+            <p>
+                《名侦探柯南》始于1994年，由青山刚昌创作的推理漫画。最初连载于《周刊少年Sunday》，随后迅速获得了广泛的人气。
+            </p>
+            <p>
+                1996年，《名侦探柯南》被改编成动画系列，进一步扩大了其影响力。动画的成功使得柯南成为了日本动漫界的标志性人物之一，吸引了全球范围内的粉丝。
+            </p>
+            <p>
+                随着系列的发展，《名侦探柯南》不断推出剧场版电影。从1997年的第一部《引爆摩天楼》开始，每年都会有新的剧场版上映，成为了粉丝们期待的年度盛事。
+            </p>
+            <p>
+                除了漫画、动画和电影，《名侦探柯南》还衍生出了众多游戏、小说和周边商品。其独特的推理情节、丰富的人物设定和引人入胜的故事情节，使得这个系列在二十多年的时间里保持了持续的人气，成为了推理动漫的经典之作。
+            </p>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <footer>
+        <div class="footer">
+            <p>
+                Detective Conan © 2025 yjs2302.com 版权所有
+            </p>
+        </div>
+    </footer>
 
 </body>
 

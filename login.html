@@ -2,116 +2,111 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>名侦探柯南</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="css/login.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>名侦探柯南</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body class="login-page">
-	<header>
-		<div class="header">
-			<div class="logo">
-				<img src="images/logo.png">
-			</div>
-			<div class="search">
-				<input type="text" class="search-1" name="" value="&nbsp &nbsp名侦探柯南">
-				<input type="submit" class="search-2" name="" value="搜索">
-			</div>
-		</div>
-		<div class="banner">
-			<img src="images/banner.png">
-		</div>
-		<nav>
-			<ul>
-				<a href="index.html">
-					<li>首页</li>
-				</a>
-				<a href="list2.html">
-					<li>角色介绍</li>
-				</a>
-				<a href="list3.html">
-					<li>经典案件</li>
-				</a>
-				<a href="list4.html">
-					<li>柯南道具</li>
-				</a>
-				<a href="list5.html">
-					<li>电影系列</li>
-				</a>
-				<a href="login.html">
-					<li>粉丝登录</li>
-				</a>
-			</ul>
-		</nav>
-	</header>
-	<div class="bg-container">
-
-		<div class="container">
-			<div class="form-box">
-				<!-- 注册 -->
-				<div class="register-box hidden">
-					<h1>register</h1>
-					<input type="text" placeholder="用户名">
-					<input type="email" placeholder="邮箱">
-					<input type="password" placeholder="密码">
-					<input type="password" placeholder="确认密码">
-					<button>注册</button>
-				</div>
-				<!-- 登录 -->
-				<div class="login-box">
-					<h1>login</h1>
-					<input type="text" placeholder="用户名">
-					<input type="password" placeholder="密码">
-					<button onclick="window.location.href='index.html'">登录</button>
-				</div>
-			</div>
-			<div class="con-box left">
-				<h2>欢迎来到<span>柯南</span>的世界</h2>
-				<p>快来探索<span>推理</span>的魅力吧</p>
-				<img src="./images/logo.png" alt="">
-				<p>已有账号</p>
-				<button id="login">去登录</button>
-			</div>
-			<div class="con-box right">
-				<h2>加入<span>柯南迷</span>的行列</h2>
-				<p>一起解开<span>谜题</span>吧</p>
-				<img src="./images/logo.png" alt="">
-				<p>没有账号？</p>
-				<button id="register">去注册</button>
-			</div>
-		</div>
-	</div>
-
-
-	<footer>
-		<div class="footer">
-			<p>
-				Detective Conan © 2025 yjs2302.com 版权所有
-			</p>
-		</div>
-	</footer>
-	<script>
-		// 要操作到的元素
-		let login = document.getElementById('login');
-		let register = document.getElementById('register');
-		let form_box = document.getElementsByClassName('form-box')[0];
-		let register_box = document.getElementsByClassName('register-box')[0];
-		let login_box = document.getElementsByClassName('login-box')[0];
-		// 去注册按钮点击事件
-		register.addEventListener('click', () => {
-			form_box.style.transform = 'translateX(80%)';
-			login_box.classList.add('hidden');
-			register_box.classList.remove('hidden');
-		})
-		// 去登录按钮点击事件
-		login.addEventListener('click', () => {
-			form_box.style.transform = 'translateX(0%)';
-			register_box.classList.add('hidden');
-			login_box.classList.remove('hidden');
-		})
-	</script>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="images/logo.png">
+            </div>
+            <div class="search">
+                <input type="text" class="search-1" name="" value="&nbsp &nbsp名侦探柯南">
+                <input type="submit" class="search-2" name="" value="搜索">
+            </div>
+        </div>
+        <div class="banner">
+            <img src="images/banner.png">
+        </div>
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li>首页</li>
+                </a>
+                <a href="list2.html">
+                    <li>角色介绍</li>
+                </a>
+                <a href="list3.html">
+                    <li>经典案件</li>
+                </a>
+                <a href="list4.html">
+                    <li>柯南道具</li>
+                </a>
+                <a href="list5.html">
+                    <li>电影系列</li>
+                </a>
+                <!-- 移除粉丝登录链接 -->
+            </ul>
+        </nav>
+    </header>
+    <div class="bg-container">
+        <div class="container">
+            <div class="form-box">
+                <!-- 注册 -->
+                <div class="register-box hidden">
+                    <h1>register</h1>
+                    <input type="text" placeholder="用户名（3 - 10 个字符）" pattern=".{3,10}" required>
+                    <input type="email" placeholder="邮箱（请输入有效邮箱）" required>
+                    <input type="password" placeholder="密码（至少 6 个字符）" pattern=".{6,}" required>
+                    <input type="password" placeholder="确认密码" pattern=".{6,}" required>
+                    <button>注册</button>
+                </div>
+                <!-- 登录 -->
+                <div class="login-box">
+                    <h1>login</h1>
+                    <input type="text" placeholder="用户名">
+                    <input type="password" placeholder="密码">
+                    <button onclick="window.location.href='index.html'">登录</button>
+                </div>
+            </div>
+            <div class="con-box left">
+                <h2>欢迎来到<span>柯南</span>的世界</h2>
+                <p>快来探索<span>推理</span>的魅力吧</p>
+                <img src="./images/logo.png" alt="">
+                <p>已有账号</p>
+                <button id="login">去登录</button>
+            </div>
+            <div class="con-box right">
+                <h2>加入<span>柯南迷</span>的行列</h2>
+                <p>一起解开<span>谜题</span>吧</p>
+                <img src="./images/logo.png" alt="">
+                <p>没有账号？</p>
+                <button id="register">去注册</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <p>
+                Detective Conan © 2025 yjs2302.com 版权所有
+            </p>
+        </div>
+    </footer>
+    <script>
+        // 要操作到的元素
+        let login = document.getElementById('login');
+        let register = document.getElementById('register');
+        let form_box = document.getElementsByClassName('form-box')[0];
+        let register_box = document.getElementsByClassName('register-box')[0];
+        let login_box = document.getElementsByClassName('login-box')[0];
+        // 去注册按钮点击事件
+        register.addEventListener('click', () => {
+            form_box.style.transform = 'translateX(80%)';
+            login_box.classList.add('hidden');
+            register_box.classList.remove('hidden');
+        })
+        // 去登录按钮点击事件
+        login.addEventListener('click', () => {
+            form_box.style.transform = 'translateX(0%)';
+            register_box.classList.add('hidden');
+            login_box.classList.remove('hidden');
+        })
+    </script>
 </body>
 
 </html>

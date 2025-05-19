@@ -2,90 +2,104 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>名侦探柯南</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>名侦探柯南</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        /* 添加样式让按钮靠右 */
+        .login-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(72, 95, 159, 1.0);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-	<header>
-		<div class="header">
-			<div class="logo">
-				<img src="images/logo.png">
-			</div>
-			<div class="search">
-				<input type="text" class="search-1" name="" value="&nbsp &nbsp名侦探柯南">
-				<input type="submit" class="search-2" name="" value="搜索">
-			</div>
-		</div>
-		<div class="banner">
-			<img src="images/banner.png">
-		</div>
-		<nav>
-			<ul>
-				<a href="index.html">
-					<li>首页</li>
-				</a>
-				<a href="list2.html">
-					<li>角色介绍</li>
-				</a>
-				<a href="list3.html">
-					<li>经典案件</li>
-				</a>
-				<a href="list4.html">
-					<li>柯南道具</li>
-				</a>
-				<a href="list5.html">
-					<li>电影系列</li>
-				</a>
-				<a href="login.html">
-					<li>粉丝登录</li>
-				</a>
-			</ul>
-		</nav>
-	</header>
-	<div class="main-fenlei">
-		<div class="main-fenlei-left">
-			<div class="main-fenlei-left-title">
-				<h3>
-					经典案件类型
-				</h3>
-			</div>
-			<div class="main-fenlei-left-text">
-				<p>
-					名侦探柯南的案件通常可以分为谋杀案和其他犯罪案件两大类。
-				</p>
-				<p>
-					谋杀案是最常见的类型，通常涉及复杂的手法和动机，例如：密室杀人、不在场证明、连环杀人等。
-				</p>
-				<p>
-					其他犯罪案件包括绑架、抢劫、诈骗等，这些案件往往与主要剧情线索相关联。
-				</p>
-				<p>
-					柯南解决案件的方式通常包括现场勘察、证据收集、逻辑推理和最后的真相揭示。他经常使用各种高科技道具辅助破案。
-				</p>
-				<p>
-					有些案件会跨越多个剧集，形成连续剧情，这些案件通常涉及更复杂的犯罪网络和更深层次的动机。
-				</p>
-				<p>
-					名侦探柯南的案件不仅仅是简单的推理游戏，还融入了人性探讨、社会问题反思等深层主题，使得这部作品在推理动漫中独树一帜，历久不衰。
-				</p>
-			</div>
-		</div>
-		<div class="main-fenlei-right">
-			<img src="images/b1.jpg">
-		</div>
-	</div>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="images/logo.png">
+            </div>
+            <div class="search">
+                <input type="text" class="search-1" name="" value="&nbsp &nbsp名侦探柯南">
+                <input type="submit" class="search-2" name="" value="搜索">
+            </div>
+        </div>
+        <div class="banner">
+            <img src="images/banner.png">
+        </div>
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li>首页</li>
+                </a>
+                <a href="list2.html">
+                    <li>角色介绍</li>
+                </a>
+                <a href="list3.html">
+                    <li>经典案件</li>
+                </a>
+                <a href="list4.html">
+                    <li>柯南道具</li>
+                </a>
+                <a href="list5.html">
+                    <li>电影系列</li>
+                </a>
+                <!-- 移除粉丝登录链接 -->
+            </ul>
+        </nav>
+        <!-- 添加Login按钮 -->
+        <button class="login-button" onclick="window.location.href='login.html'">粉丝登录</button>
+    </header>
+    <div class="main-fenlei">
+        <div class="main-fenlei-left">
+            <div class="main-fenlei-left-title">
+                <h3>
+                    经典案件类型
+                </h3>
+            </div>
+            <div class="main-fenlei-left-text">
+                <p>
+                    名侦探柯南的案件通常可以分为谋杀案和其他犯罪案件两大类。
+                </p>
+                <p>
+                    谋杀案是最常见的类型，通常涉及复杂的手法和动机，例如：密室杀人、不在场证明、连环杀人等。
+                </p>
+                <p>
+                    其他犯罪案件包括绑架、抢劫、诈骗等，这些案件往往与主要剧情线索相关联。
+                </p>
+                <p>
+                    柯南解决案件的方式通常包括现场勘察、证据收集、逻辑推理和最后的真相揭示。他经常使用各种高科技道具辅助破案。
+                </p>
+                <p>
+                    有些案件会跨越多个剧集，形成连续剧情，这些案件通常涉及更复杂的犯罪网络和更深层次的动机。
+                </p>
+                <p>
+                    名侦探柯南的案件不仅仅是简单的推理游戏，还融入了人性探讨、社会问题反思等深层主题，使得这部作品在推理动漫中独树一帜，历久不衰。
+                </p>
+            </div>
+        </div>
+        <div class="main-fenlei-right">
+            <img src="images/b1.jpg">
+        </div>
+    </div>
 
-	<div style="clear: both;"></div>
-	<footer>
-		<div class="footer">
-			<p>
-				Detective Conan © 2025 yjs2302.com 版权所有
-			</p>
-		</div>
-	</footer>
+    <div style="clear: both;"></div>
+    <footer>
+        <div class="footer">
+            <p>
+                Detective Conan © 2025 yjs2302.com 版权所有
+            </p>
+        </div>
+    </footer>
 
 </body>
 

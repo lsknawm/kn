@@ -65,26 +65,27 @@ header{
 	height: auto;
 }
 nav{
-	width: 1300px;
-	height: 50px;
-	margin: auto;
+    width: 1300px;
+    height: 50px;
+    margin: auto;
 }
 ul{
-	width: 1300px;
-	height: 50px;
-	margin: auto;
+    width: 1300px;
+    height: 50px;
+    margin: auto;
 }
+/* 修改 li 元素的宽度为 260px */
 ul li{
-	width: 216px;
-	height: 50px;
-	float: left;
-	text-align: center;
-	line-height: 50px;
-	color: rgba(0, 0, 0, 1.0);
+    width: 260px;
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    color: rgba(0, 0, 0, 1.0);
 }
 ul li:hover{
-	color: rgba(72, 95, 159, 1.0);
-	background: rgba(255, 255, 255, 1.0);
+    color: rgba(72, 95, 159, 1.0);
+    background: rgba(255, 255, 255, 1.0);
 }
 .main{
 	width: 1300px;
