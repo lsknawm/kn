@@ -7,6 +7,29 @@
     <title>名侦探柯南</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
+    <style>
+        /* 卡片样式 */
+        .user-card {
+            background-color: #fff;
+            width: 320px;
+            height: 500px;
+            border-radius: 5px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .user-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .user-card p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 
 <body class="login-page">
@@ -46,38 +69,7 @@
     </header>
     <div class="bg-container">
         <div class="container">
-            <div class="form-box">
-                <!-- 注册 -->
-                <div class="register-box hidden">
-                    <h1>register</h1>
-                    <input type="text" placeholder="用户名（3 - 10 个字符）" pattern=".{3,10}" required>
-                    <input type="email" placeholder="邮箱（请输入有效邮箱）" required>
-                    <input type="password" placeholder="密码（至少 6 个字符）" pattern=".{6,}" required>
-                    <input type="password" placeholder="确认密码" pattern=".{6,}" required>
-                    <button>注册</button>
-                </div>
-                <!-- 登录 -->
-                <div class="login-box">
-                    <h1>login</h1>
-                    <input type="text" placeholder="用户名">
-                    <input type="password" placeholder="密码">
-                    <button onclick="window.location.href='index.html'">登录</button>
-                </div>
-            </div>
-            <div class="con-box left">
-                <h2>欢迎来到<span>柯南</span>的世界</h2>
-                <p>快来探索<span>推理</span>的魅力吧</p>
-                <img src="imagesogo.png" alt="">
-                <p>已有账号</p>
-                <button id="login">去登录</button>
-            </div>
-            <div class="con-box right">
-                <h2>加入<span>柯南迷</span>的行列</h2>
-                <p>一起解开<span>谜题</span>吧</p>
-                <img src="./images/logo.png" alt="">
-                <p>没有账号？</p>
-                <button id="register">去注册</button>
-            </div>
+            <!-- 这里将展示用户信息卡片或登录/注册表单 -->
         </div>
     </div>
     <footer>
@@ -88,24 +80,115 @@
         </div>
     </footer>
     <script>
-        // 要操作到的元素
-        let login = document.getElementById('login');
-        let register = document.getElementById('register');
-        let form_box = document.getElementsByClassName('form-box')[0];
-        let register_box = document.getElementsByClassName('register-box')[0];
-        let login_box = document.getElementsByClassName('login-box')[0];
-        // 去注册按钮点击事件
-        register.addEventListener('click', () => {
-            form_box.style.transform = 'translateX(80%)';
-            login_box.classList.add('hidden');
-            register_box.classList.remove('hidden');
-        })
-        // 去登录按钮点击事件
-        login.addEventListener('click', () => {
-            form_box.style.transform = 'translateX(0%)';
-            register_box.classList.add('hidden');
-            login_box.classList.remove('hidden');
-        })
+        // 获取容器元素
+        const container = document.querySelector("body > div.bg-container > div");
+
+        // 获取 token 和 user_info
+        const token = localStorage.getItem('token');
+        const userInfo = JSON.parse(localStorage.getItem('user_info'));
+
+        if (token) {
+            // 如果有 token，展示用户信息卡片
+            const userCard = document.createElement('div');
+            userCard.classList.add('user-card');
+
+            const h2 = document.createElement('h2');
+            h2.textContent = '用户信息';
+            userCard.appendChild(h2);
+
+            const idP = document.createElement('p');
+            idP.textContent = `ID: ${userInfo.id}`;
+            userCard.appendChild(idP);
+
+            const usernameP = document.createElement('p');
+            usernameP.textContent = `用户名: ${userInfo.username}`;
+            userCard.appendChild(usernameP);
+
+            const nameP = document.createElement('p');
+            nameP.textContent = `姓名: ${userInfo.name}`;
+            userCard.appendChild(nameP);
+
+            const phoneP = document.createElement('p');
+            phoneP.textContent = `电话: ${userInfo.phone}`;
+            userCard.appendChild(phoneP);
+
+            container.innerHTML = '';
+            container.appendChild(userCard);
+        } else {
+            // 如果没有 token，展示正常的登录页
+            const formBox = document.createElement('div');
+            formBox.classList.add('form-box');
+
+            // 注册
+            const registerBox = document.createElement('div');
+            registerBox.classList.add('register-box', 'hidden');
+            registerBox.innerHTML = `
+                <h1>register</h1>
+                <input type="text" placeholder="用户名（3 - 10 个字符）" pattern=".{3,10}" required>
+                <input type="email" placeholder="邮箱（请输入有效邮箱）" required>
+                <input type="password" placeholder="密码（至少 6 个字符）" pattern=".{6,}" required>
+                <input type="password" placeholder="确认密码" pattern=".{6,}" required>
+                <button>注册</button>
+            `;
+            formBox.appendChild(registerBox);
+
+            // 登录
+            const loginBox = document.createElement('div');
+            loginBox.classList.add('login-box');
+            loginBox.innerHTML = `
+                <h1>login</h1>
+                <input type="text" placeholder="用户名">
+                <input type="password" placeholder="密码">
+                <button onclick="window.location.href='index.html'">登录</button>
+            `;
+            formBox.appendChild(loginBox);
+
+            const conBoxLeft = document.createElement('div');
+            conBoxLeft.classList.add('con-box', 'left');
+            conBoxLeft.innerHTML = `
+                <h2>欢迎来到<span>柯南</span>的世界</h2>
+                <p>快来探索<span>推理</span>的魅力吧</p>
+                <img src="imagesogo.png" alt="">
+                <p>已有账号</p>
+                <button id="login">去登录</button>
+            `;
+
+            const conBoxRight = document.createElement('div');
+            conBoxRight.classList.add('con-box', 'right');
+            conBoxRight.innerHTML = `
+                <h2>加入<span>柯南迷</span>的行列</h2>
+                <p>一起解开<span>谜题</span>吧</p>
+                <img src="./images/logo.png" alt="">
+                <p>没有账号？</p>
+                <button id="register">去注册</button>
+            `;
+
+            container.innerHTML = '';
+            container.appendChild(formBox);
+            container.appendChild(conBoxLeft);
+            container.appendChild(conBoxRight);
+
+            // 要操作到的元素
+            let login = document.getElementById('login');
+            let register = document.getElementById('register');
+            let form_box = document.getElementsByClassName('form-box')[0];
+            let register_box = document.getElementsByClassName('register-box')[0];
+            let login_box = document.getElementsByClassName('login-box')[0];
+
+            // 去注册按钮点击事件
+            register.addEventListener('click', () => {
+                form_box.style.transform = 'translateX(80%)';
+                login_box.classList.add('hidden');
+                register_box.classList.remove('hidden');
+            })
+
+            // 去登录按钮点击事件
+            login.addEventListener('click', () => {
+                form_box.style.transform = 'translateX(0%)';
+                register_box.classList.add('hidden');
+                login_box.classList.remove('hidden');
+            })
+        }
     </script>
 </body>
 
