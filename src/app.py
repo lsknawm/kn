@@ -2,7 +2,7 @@ from functools import wraps
 from flask import Flask, request, jsonify, make_response
 from flask_mysqldb import MySQL
 import bcrypt
-
+#
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
