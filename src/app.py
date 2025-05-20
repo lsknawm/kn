@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app)  # 启用 CORS
 
 
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '192.168.92.100'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'KN'
