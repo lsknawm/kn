@@ -4,11 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>名侦探柯南</title>
+    <title>名探偵コナン - キャラクター紹介</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="css/card.css">
     <style>
-        /* 添加样式让按钮靠右 */
+        /* ボタンを右寄せにするスタイルを追加 */
         .login-button {
             position: absolute;
             height: 50px;
@@ -21,6 +20,42 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        /* キャラクターカードのスタイル */
+        .character-card {
+            display: flex;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .character-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .character-info {
+            flex: 1;
+        }
+
+        .character-name {
+            font-size: 24px;
+            color: rgba(72, 95, 159, 1.0);
+            margin-bottom: 10px;
+        }
+
+        .character-desc {
+            line-height: 1.6;
+        }
     </style>
 </head>
 
@@ -31,8 +66,8 @@
                 <img src="images/logo.png">
             </div>
             <div class="search">
-                <input type="text" class="search-1" name="" value="&nbsp &nbsp名侦探柯南">
-                <input type="submit" class="search-2" name="" value="搜索">
+                <input type="text" class="search-1" name="" value="　　名探偵コナン">
+                <input type="submit" class="search-2" name="" value="検索">
             </div>
         </div>
         <div class="banner">
@@ -40,132 +75,95 @@
         </div>
         <nav>
             <ul>
-                <a href="http://127.0.0.1:5000/">
-                    <li>首页</li>
-                </a>
-                <a href="http://127.0.0.1:5000/list2">
-                    <li>角色介绍</li>
-                </a>
-                <a href="http://127.0.0.1:5000/list3">
-                    <li>经典案件</li>
-                </a>
-                <a href="http://127.0.0.1:5000/list4">
-                    <li>柯南道具</li>
-                </a>
-                <a href="http://127.0.0.1:5000/list5">
-                    <li>电影系列</li>
-                </a>
-                <!-- 移除粉丝登录链接 -->
+                <li onclick="window.location.href='http://127.0.0.1:5000/index'">ホーム</li>
+                <li onclick="window.location.href='http://127.0.0.1:5000/list2'">キャラクター紹介</li>
+                <li onclick="window.location.href='http://127.0.0.1:5000/list3'">クラシックケース</li>
+                <li onclick="window.location.href='http://127.0.0.1:5000/list4'">コナンの道具</li>
+                <li onclick="window.location.href='http://127.0.0.1:5000/list5'">映画シリーズ</li>
             </ul>
         </nav>
-        <!-- 添加login按钮 -->
-        <button class="login-button" onclick="window.location.href='http://127.0.0.1:5000/login'">粉丝登录</button>
+        <button class="login-button" onclick="window.location.href='http://127.0.0.1:5000/login'">ファンログイン</button>
     </header>
-    <!-- <div class="main-ticaineirong-title">
-        <h3>
-            角色介绍
-        </h3>
-    </div> -->
-    <div class="main-fenlei">
-        <div class="main-fenlei-left">
-            <div class="main-fenlei-left-title">
-                <h3>
-                    角色介绍
-                </h3>
+    <div class="main">
+        <div class="list-title">
+            <h2>キャラクター紹介</h2>
+        </div>
+        <div class="character-list">
+            <!-- 江戸川コナン -->
+            <div class="character-card">
+                <img src="images/characters/edogawa.png" alt="江戸川コナン" class="character-image">
+                <div class="character-info">
+                    <h3 class="character-name">江戸川コナン</h3>
+                    <p class="character-desc">
+                        高校生探偵の工藤新一が黒の組織によって毒殺され、体が縮小した姿。名探偵・毛利小五郎のもとで生活しながら、謎の組織の正体を追い求める。小さな身体ながら、鋭い推理力で難事件を次々と解決する。
+                    </p>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="card-container">
-        <div class="card">
-            <div class="photo"><img src="images/a1.jpg" alt=""></div>
-            <h1>江户川柯南</h1>
-            <h2>（工藤新一）</h2>
-            <p>原本是高中生侦探工藤新一，被神秘组织灌下毒药后身体缩小成小孩，化名为江户川柯南。</p>
-            <a href="#">了解更多</a>
-        </div>
-        <div class="card">
-            <div class="photo"><img src="images/a2.jpg" alt=""></div>
-            <h1>毛利兰</h1>
-            <h2>关东空手道大赛的冠军</h2>
-            <p>性格开朗、热情、善良，同时也非常坚强和勇敢。新一的青梅竹马，空手道高手，新一的恋人。</p>
-            <a href="#">了解更多</a>
-        </div>
-        <div class="card">
-            <div class="photo"><img src="images/a3.jpg" alt=""></div>
-            <h1>毛利小五郎</h1>
-            <h2>沉睡的小五郎</h2>
-            <p>小兰的父亲，是一名私家侦探，经常在柯南的帮助下解决案件。</p>
-            <a href="#">了解更多</a>
-        </div>
-        <div class="card">
-            <div class="photo"><img src="images/a4.jpg" alt=""></div>
-            <h1>灰原哀</h1>
-            <h2>（宫野志保）</h2>
-            <p>原为神秘组织成员，原名宫野志保，后来逃离组织，也服用了同样的药物身体缩小，化名为灰原哀。</p>
-            <a href="#">了解更多</a>
-        </div>
-        <div class="card">
-            <div class="photo"><img src="images/a5.jpg" alt=""></div>
-            <h1>怪盗基德</h1>
-            <h2>（黑羽快斗）</h2>
-            <p>精通易容、变声、逃脱术等技能。和工藤新一非常相似，两人几乎是一模一样。</p>
-            <a href="#">了解更多</a>
-        </div>
-        <div class="card">
-            <div class="photo"><img src="images/a6.jpg" alt=""></div>
-            <h1>铃木园子</h1>
-            <h2>“推理女王”</h2>
-            <p>小兰的好友，铃木财团的大小姐，但性格开朗、不拘小节，虽然有些花痴。</p>
-            <a href="#">了解更多</a>
-        </div>
-        <div class="card">
-            <div class="photo"><img src="images/a7.jpg" alt=""></div>
-            <h1>阿笠博士</h1>
-            <h2>发明家</h2>
-            <p>柯南的邻居，知道柯南的身份，帮助柯南制作了许多侦探工具。</p>
-            <a href="#">了解更多</a>
-        </div>
-        <div class="card">
-            <div class="photo"><img src="images/a8.jpg" alt=""></div>
-            <h1>服部平次</h1>
-            <h2>关东的工藤，关西的服部</h2>
-            <p>平次性格开朗、活泼、阳光和热血，擅长推理，有很强的阳光气场，富有男子气概和魅力。</p>
-            <a href="#">了解更多</a>
-        </div>
 
-    </div>
+            <!-- 毛利蘭 -->
+            <div class="character-card">
+                <img src="images/characters/mouri.png" alt="毛利蘭" class="character-image">
+                <div class="character-info">
+                    <h3 class="character-name">毛利蘭</h3>
+                    <p class="character-desc">
+                        工藤新一の幼なじみで、空手の達人。父親の毛利小五郎の事務所を手伝いながら、高校生活を送っている。新一の行方不明に心配しながらも、強い精神力で前向きに生きている。
+                    </p>
+                </div>
+            </div>
 
-    <div class="main-yanbian">
-        <div style="clear: both;"></div>
-        <div class="main-yanbian-1-text">
-            <h3>
-                柯南系列发展历程
-            </h3>
-        </div>
-        <div class="main-yanbian-1-text-2">
-            <p>
-                《名侦探柯南》始于1994年，由青山刚昌创作的推理漫画。最初连载于《周刊少年Sunday》，随后迅速获得了广泛的人气。
-            </p>
-            <p>
-                1996年，《名侦探柯南》被改编成动画系列，进一步扩大了其影响力。动画的成功使得柯南成为了日本动漫界的标志性人物之一，吸引了全球范围内的粉丝。
-            </p>
-            <p>
-                随着系列的发展，《名侦探柯南》不断推出剧场版电影。从1997年的第一部《引爆摩天楼》开始，每年都会有新的剧场版上映，成为了粉丝们期待的年度盛事。
-            </p>
-            <p>
-                除了漫画、动画和电影，《名侦探柯南》还衍生出了众多游戏、小说和周边商品。其独特的推理情节、丰富的人物设定和引人入胜的故事情节，使得这个系列在二十多年的时间里保持了持续的人气，成为了推理动漫的经典之作。
-            </p>
+            <!-- 毛利小五郎 -->
+            <div class="character-card">
+                <img src="images/characters/kogoro.png" alt="毛利小五郎" class="character-image">
+                <div class="character-info">
+                    <h3 class="character-name">毛利小五郎</h3>
+                    <p class="character-desc">
+                        蘭の父親で、私立探偵。以前は警視庁の刑事だったが、現在は自宅に事務所を構えている。一見の侘助なところがあるが、本当のところはかなりの覚悟と正義感を持っている。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 灰原哀 -->
+            <div class="character-card">
+                <img src="images/characters/haibara.png" alt="灰原哀" class="character-image">
+                <div class="character-info">
+                    <h3 class="character-name">灰原哀</h3>
+                    <p class="character-desc">
+                        元黒の組織の科学者・宮野志保。組織が開発していた薬の副作用で体が縮小し、江戸川コナンと同じ境遇になった。冷たい雰囲気を纏っているが、内面は優しく、コナンを信頼している。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 怪盗キッド -->
+            <div class="character-card">
+                <img src="images/characters/kaito.png" alt="怪盗キッド" class="character-image">
+                <div class="character-info">
+                    <h3 class="character-name">怪盗キッド</h3>
+                    <p class="character-desc">
+                        世に謎の怪盗。华丽な格好で贵重品を狙うが、その正体は高校生の黒羽快斗。父親の仇を追うために怪盗として活動している。コナンとは敵対関係だが、時には協力することもある。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 服部平次 -->
+            <div class="character-card">
+                <img src="images/characters/hattori.png" alt="服部平次" class="character-image">
+                <div class="character-info">
+                    <h3 class="character-name">服部平次</h3>
+                    <p class="character-desc">
+                        関西の名探偵。工藤新一と並ぶ高校生探偵で、「関西の服部、関東の工藤」と呼ばれている。皮膚が黒く、大阪弁を話すのが特徴。コナンの正体を見抜き、仲間となった。
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <div style="clear: both;"></div>
     <footer>
         <div class="footer">
             <p>
-                Detective Conan © 2025 yjs2302.com 版权所有
+                名探偵コナン © 2025 yjs2302.com 著作権所有
             </p>
         </div>
     </footer>
-
 </body>
 
 </html>

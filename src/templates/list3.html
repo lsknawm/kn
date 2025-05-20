@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>名侦探柯南</title>
+    <title>名探偵コナン - クラシックケース</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <style>
-        /* 添加样式让按钮靠右 */
+        /* ボタンを右寄せにするスタイルを追加 */
         .login-button {
             position: absolute;
             height: 50px;
@@ -20,6 +20,38 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        /* ケースカードのスタイル */
+        .case-card {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-title {
+            font-size: 22px;
+            color: rgba(72, 95, 159, 1.0);
+            margin-bottom: 10px;
+        }
+
+        .case-desc {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .case-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
@@ -30,8 +62,8 @@
                 <img src="images/logo.png">
             </div>
             <div class="search">
-                <input type="text" class="search-1" name="" value="&nbsp &nbsp名侦探柯南">
-                <input type="submit" class="search-2" name="" value="搜索">
+                <input type="text" class="search-1" name="" value="　　名探偵コナン">
+                <input type="submit" class="search-2" name="" value="検索">
             </div>
         </div>
         <div class="banner">
@@ -39,69 +71,89 @@
         </div>
         <nav>
             <ul>
-                <a href="http://127.0.0.1:5000/">
-                    <li>首页</li>
-                </a>
-                <a href="http://127.0.0.1:5000/list2">
-                    <li>角色介绍</li>
-                </a>
-                <a href="http://127.0.0.1:5000/list3">
-                    <li>经典案件</li>
-                </a>
-                <a href="http://127.0.0.1:5000/list4">
-                    <li>柯南道具</li>
-                </a>
-                <a href="http://127.0.0.1:5000/list5">
-                    <li>电影系列</li>
-                </a>
-                <!-- 移除粉丝登录链接 -->
+                <li onclick="window.location.href='http://127.0.0.1:5000/index'">ホーム</li>
+                <li onclick="window.location.href='http://127.0.0.1:5000/list2'">キャラクター紹介</li>
+                <li onclick="window.location.href='http://127.0.0.1:5000/list3'">クラシックケース</li>
+                <li onclick="window.location.href='http://127.0.0.1:5000/list4'">コナンの道具</li>
+                <li onclick="window.location.href='http://127.0.0.1:5000/list5'">映画シリーズ</li>
             </ul>
         </nav>
-        <!-- 添加Login按钮 -->
-        <button class="login-button" onclick="window.location.href='http://127.0.0.1:5000/login'">粉丝登录</button>
+        <button class="login-button" onclick="window.location.href='http://127.0.0.1:5000/login'">ファンログイン</button>
     </header>
-    <div class="main-fenlei">
-        <div class="main-fenlei-left">
-            <div class="main-fenlei-left-title">
-                <h3>
-                    经典案件类型
-                </h3>
-            </div>
-            <div class="main-fenlei-left-text">
-                <p>
-                    名侦探柯南的案件通常可以分为谋杀案和其他犯罪案件两大类。
-                </p>
-                <p>
-                    谋杀案是最常见的类型，通常涉及复杂的手法和动机，例如：密室杀人、不在场证明、连环杀人等。
-                </p>
-                <p>
-                    其他犯罪案件包括绑架、抢劫、诈骗等，这些案件往往与主要剧情线索相关联。
-                </p>
-                <p>
-                    柯南解决案件的方式通常包括现场勘察、证据收集、逻辑推理和最后的真相揭示。他经常使用各种高科技道具辅助破案。
-                </p>
-                <p>
-                    有些案件会跨越多个剧集，形成连续剧情，这些案件通常涉及更复杂的犯罪网络和更深层次的动机。
-                </p>
-                <p>
-                    名侦探柯南的案件不仅仅是简单的推理游戏，还融入了人性探讨、社会问题反思等深层主题，使得这部作品在推理动漫中独树一帜，历久不衰。
-                </p>
-            </div>
+    <div class="main">
+        <div class="list-title">
+            <h2>クラシックケース</h2>
         </div>
-        <div class="main-fenlei-right">
-            <img src="images/b1.jpg">
+        <div class="case-list">
+            <!-- ケース1 -->
+            <div class="case-card">
+                <h3 class="case-title">摩天楼の爆破犯</h3>
+                <img src="images/cases/case1.jpg" alt="摩天楼の爆破犯" class="case-image">
+                <p class="case-desc">
+                    東京タワーをはじめとする重要インフラが次々と爆破される事件。犯人は独特のパターンで標的を選んでおり、その理由は建築家の狂気的な美学にあった…。コナンたちは時間との勝負で犯人を追いつめる。
+                </p>
+                <p class="case-desc">
+                    この事件では、コナンが独自の推理力と勇敢な行動で危機を救うシーンが多く、シリーズの代表作の一つとされています。
+                </p>
+            </div>
+
+            <!-- ケース2 -->
+            <div class="case-card">
+                <h3 class="case-title">二十年目の復讐</h3>
+                <img src="images/cases/case2.jpg" alt="二十年目の復讐" class="case-image">
+                <p class="case-desc">
+                    二十年前の船の事故をきっかけに、関係者が次々と殺される連続殺人事件。犯人は巧妙なトリックを使って現場を仕組み、警察を混乱させようとする。コナンは過去と現在の関係を解き明かし、真相を暴く。
+                </p>
+                <p class="case-desc">
+                    この事件では、複雑なトリックと深い因縁が描かれており、読者を飽きさせない展開が続きます。
+                </p>
+            </div>
+
+            <!-- ケース3 -->
+            <div class="case-card">
+                <h3 class="case-title">黒の組織との対決</h3>
+                <img src="images/cases/case3.jpg" alt="黒の組織との対決" class="case-image">
+                <p class="case-desc">
+                    コナンたちが黒の組織と直接対峙する壮大な事件。組織の正体が徐々に明らかになる中、コナンは命がけの作戦を練り、組織の干部との壮絶な闘いが繰り広げられる。
+                </p>
+                <p class="case-desc">
+                    この事件では、長年の伏線が一挙に解明され、シリーズの大きな節目となる展開が繰り広げられます。
+                </p>
+            </div>
+
+            <!-- ケース4 -->
+            <div class="case-card">
+                <h3 class="case-title">霧の中の殺人事件</h3>
+                <img src="images/cases/case4.jpg" alt="霧の中の殺人事件" class="case-image">
+                <p class="case-desc">
+                    山中の旅館で起こった奇妙な殺人事件。被害者は密室の中で殺されていたが、現場には不可解な痕跡だけが残されていた。コナンは霧に包まれた現場で手がかりを探し出し、犯人の正体を暴く。
+                </p>
+                <p class="case-desc">
+                    この事件では、独特のトリックと美しい自然が織りなす雰囲気が魅力的で、読者を引き込む力があります。
+                </p>
+            </div>
+
+            <!-- ケース5 -->
+            <div class="case-card">
+                <h3 class="case-title">海底宫殿の秘密</h3>
+                <img src="images/cases/case5.jpg" alt="海底宫殿の秘密" class="case-image">
+                <p class="case-desc">
+                    海底に沈んだ古代遺跡で起こった連続殺人事件。遺跡に秘められた謎と、現代人の欲望が交錯する中、コナンたちは水中での捜査を強いられる。潜水装備を駆使して、真相に迫る。
+                </p>
+                <p class="case-desc">
+                    この事件では、独特の舞台設定と緊迫した展開が特徴で、水中シーンの描写が美しく描かれています。
+                </p>
+            </div>
         </div>
     </div>
-
     <div style="clear: both;"></div>
     <footer>
         <div class="footer">
             <p>
-                Detective Conan © 2025 yjs2302.com 版权所有
+                名探偵コナン © 2025 yjs2302.com 著作権所有
             </p>
         </div>
     </footer>
-
 </body>
 
 </html>
